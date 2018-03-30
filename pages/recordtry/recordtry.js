@@ -46,7 +46,7 @@ const options = {
   sampleRate: 44100,
   numberOfChannels: 1,
   encodeBitRate: 192000,
-  format: 'wav',
+  format: 'aac',
   frameSize: 50
 }
 
@@ -67,7 +67,7 @@ Page({
 
 start:function(event){
   if (event.currentTarget.dataset.id) {
-    recorderManager.start()
+    recorderManager.start(options)
     
     this.setData({
       recordstate: false

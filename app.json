@@ -1,13 +1,7 @@
 {
   "pages": [
-                        "pages/recordtry/recordtry",
-                          "pages/index/index"
-  
-
-
-
-
-        
+    "pages/recordtry/recordtry",
+    "pages/index/index"
 
   ],
   "window": {
@@ -16,5 +10,6 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh":true
-  }
+  },
+  "dubug":false
 }
