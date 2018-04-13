@@ -22,5 +22,4 @@ view{
     word-break: break-all;
     -webkit-box-orient: vertical;
 
-
 }
