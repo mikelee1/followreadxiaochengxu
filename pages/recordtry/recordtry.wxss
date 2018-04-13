@@ -6,13 +6,15 @@ view{
 
 
 
-
-.text4_1{
+.text1{
+  display: block;
+  margin: auto;
+  width: 80%;
 	height: 78px;
 	font-size: 20px;
 	font-family: '微软雅黑';
 	font-weight: bold;
-	color: red;
+	/* color: red; */
 	position: relative;
 
     display: -webkit-box;
@@ -20,34 +22,5 @@ view{
     word-break: break-all;
     -webkit-box-orient: vertical;
 
-
-}
-.text4_2{
-	position: absolute;
-	left: 0;
-	top: 0;
-	/* width: 100px; */
-	height: 78px;
-	font-size: 20px;
-	font-family: '微软雅黑';
-	font-weight: bold;
-	color: #000;
-	   overflow: hidden;  
-         white-space: nowrap;  
-        -webkit-animation:loop2 5s linear ;
-
-/* text-overflow: ellipsis; */
-    display: -webkit-box;
-    word-break: break-all;
-    -webkit-box-orient: vertical;
-
-
-}
-
-@-webkit-keyframes loop2{
-	0%{width: 0;}
-	/* 50%{width:500px;}
-  50%{top:20px;width:0} */
-  	100%{top:20px;width:500px;}
 
 }

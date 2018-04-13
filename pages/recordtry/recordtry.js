@@ -60,19 +60,28 @@ Page({
     curTimeVal:0,
     duration:100,
     audioSrc:'',
-    upload:false
-
+    upload: false, 
+    nodes: [{
+      name: "p",
+      attrs: { style: 'color:red' },
+      children: [{
+        type: "text",
+        text: '......朝辞白帝彩云间......千里江陵一日还......两岸猿声啼不住......轻舟已过万重山......'
+      }]
+    }],
   },
 
-
 start:function(event){
+var that = this
   if (event.currentTarget.dataset.id) {
+
     recorderManager.start(options)
-    
     this.setData({
       recordstate: false
     })
+    that.click()
   } else {
+
     innerAudioContext.src = app.globalData.audiopath;
     recorderManager.stop()
     this.setData({
@@ -80,9 +89,8 @@ start:function(event){
       showyuansheng: true,
       audioSrc: app.globalData.audiopath
     })
-  
-
   }
+  
 },
 
 
@@ -143,13 +151,146 @@ play:function(event){
 
 },
 
+click:function(){
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+ var that = this
+
+    var oP = that.data.nodes;
+    var str1 = that.data.nodes[0].children[0].text;
+    var str = that.data.nodes[0].children[0].text;
+    var a = 0;
+    var str_2 = "";
+    var len = str.length;
 
 
 
+    var i = 0
+    function color(str) {
+
+        var interval = setInterval(function(){ 
+          if(i<len){
+
+            that.setData({
+              nodes: [{
+                name: "p",
+                attrs: {
+                  style: "color:black;word-wrap:break-word; word-break:break-all;",
+                  class: "red"
+                },
+                children: [{
+                  type: "text",
+                  attrs: { style: 'color:black' },
+                  text: str1.slice(0, i + 1)
+                },
+                {
+                  name: "span",
+                  attrs: {
+                    style: "color:red;word-wrap:break-word; word-break:break-all;",
+                    class: "red"
+                  },
+                  children: [{
+                    type: "text",
+                    text: str1.slice(i + 1)
+                  }]
+                }
+                ]
+              }
+              ],
+            })
+            i++
+          }else{
+            clearInterval(interval);
+          }
+   
+
+
+
+        },200)
+
+    }
+    
+    color(str);
+},
+
+
+
+
+
+
+
+
+clickbak: function () {
+
+  function sleep(n) {
+    var start = new Date().getTime();//定义起始时间的毫秒数
+    while (true) {
+      var time = new Date().getTime();//每次执行循环取得一次当前时间的毫秒数
+      if (time - start > n) {//如果当前时间的毫秒数减去起始时间的毫秒数大于给定的毫秒数，即结束循环
+        break;
+      }
+    }
+  }
+
+
+  var that = this
+
+  var oP = that.data.nodes;
+  var str1 = that.data.nodes[0].children[0].text;
+  var str = that.data.nodes[0].children[0].text;
+  var a = 0;
+  var str_2 = "";
+  var len = str.length;
+
+
+  var j = 0;
+  var dengdai = function () {
+    if (j < 10) {
+      console.log(j)
+      j++;
+      setTimeout(dengdai, 5000);
+    }
+  }
+
+
+
+  function color(str) {
+    for (var i = 0; i < len; i++) {
+      sleep(250)
+      // dengdai()
+      // j = 0
+
+
+      that.setData({
+        nodes: [{
+          name: "p",
+          attrs: {
+            style: "color:black;word-wrap:break-word; word-break:break-all;",
+            class: "red"
+          },
+          children: [{
+            type: "text",
+            attrs: { style: 'color:black' },
+            text: str1.slice(0, i + 1)
+          },
+          {
+            name: "span",
+            attrs: {
+              style: "color:red;word-wrap:break-word; word-break:break-all;",
+              class: "red"
+            },
+            children: [{
+              type: "text",
+              text: str1.slice(i + 1)
+            }]
+          }
+          ]
+        }
+        ],
+      })
+    }
+  }
+  color(str);
+},
 
 
 
@@ -161,7 +302,7 @@ play:function(event){
 
 
 onLoad:function(){
-
+  
 },
 
 
